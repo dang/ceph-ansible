@@ -30,4 +30,7 @@ vagrant_box: centos/atomic-host
 # Set to /home/vagrant/sync for Centos/7, /home/{ user }/vagrant for openstack and defaults to /vagrant
 vagrant_sync_dir: /home/vagrant/sync
 
+# Get verbose output from Ansible
+# verbose: true
+
 skip_tags: 'with_pkg'

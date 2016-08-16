@@ -28,10 +28,15 @@ MEMORY         = settings['memory']
 ETH            = settings['eth']
 DOCKER         = settings['docker']
 USER           = settings['ssh_username']
+VERBOSE        = settings['verbose']
 
 ASSIGN_STATIC_IP = !(BOX == 'openstack' or BOX == 'linode')
 
 ansible_provision = proc do |ansible|
+  if VERBOSE then
+    ansible.verbose = "vvv"
+  end
+
   if DOCKER then
     ansible.playbook = 'site-docker.yml'
     if settings['skip_tags']
